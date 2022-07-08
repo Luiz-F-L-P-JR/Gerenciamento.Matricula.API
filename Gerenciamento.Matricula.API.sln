@@ -17,13 +17,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{0DF3735A-5F39-4EF6-B50E-8B13E97883CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gerenciamento.Matricula.API.Application", "Gerenciamento.Matricula.API.Application\Gerenciamento.Matricula.API.Application.csproj", "{D9C08390-C361-48EB-8BCC-E0A772AFC597}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gerenciamento.Matricula.API.Application", "Gerenciamento.Matricula.API.Application\Gerenciamento.Matricula.API.Application.csproj", "{D9C08390-C361-48EB-8BCC-E0A772AFC597}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gerenciamento.Matricula.API.Domain", "Gerenciamento.Matricula.API.Domain\Gerenciamento.Matricula.API.Domain.csproj", "{9E512E10-BF90-4DEE-B385-FA2E89F81497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gerenciamento.Matricula.API.Domain", "Gerenciamento.Matricula.API.Domain\Gerenciamento.Matricula.API.Domain.csproj", "{9E512E10-BF90-4DEE-B385-FA2E89F81497}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gerenciamento.Matricula.API.Data", "Gerenciamento.Matricula.API.Data\Gerenciamento.Matricula.API.Data.csproj", "{36DDD539-094E-40F3-A963-5CABC83616FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gerenciamento.Matricula.API.Data", "Gerenciamento.Matricula.API.Data\Gerenciamento.Matricula.API.Data.csproj", "{36DDD539-094E-40F3-A963-5CABC83616FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gerenciamento.Matricula.API.CrossCutting", "Gerenciamento.Matricula.API.CrossCutting\Gerenciamento.Matricula.API.CrossCutting.csproj", "{D248211B-94E6-4C93-BB9C-5A6FC0EEFC67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gerenciamento.Matricula.API.CrossCutting", "Gerenciamento.Matricula.API.CrossCutting\Gerenciamento.Matricula.API.CrossCutting.csproj", "{D248211B-94E6-4C93-BB9C-5A6FC0EEFC67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Test", "5 - Test", "{FC961B4E-3497-45AF-8674-DC26D19D2C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gerenciamento.Matricula.API.Test", "Gerenciamento.Matricula.API.Test\Gerenciamento.Matricula.API.Test.csproj", "{F9EDBB67-6F99-495B-B0DF-928E42391174}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{D248211B-94E6-4C93-BB9C-5A6FC0EEFC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D248211B-94E6-4C93-BB9C-5A6FC0EEFC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D248211B-94E6-4C93-BB9C-5A6FC0EEFC67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9EDBB67-6F99-495B-B0DF-928E42391174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9EDBB67-6F99-495B-B0DF-928E42391174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9EDBB67-6F99-495B-B0DF-928E42391174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9EDBB67-6F99-495B-B0DF-928E42391174}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +71,7 @@ Global
 		{9E512E10-BF90-4DEE-B385-FA2E89F81497} = {1EA06A91-C0C6-45E2-9E8C-B1B9FED230D8}
 		{36DDD539-094E-40F3-A963-5CABC83616FD} = {DBCDB7A2-1F06-4A21-843F-4983A14AEAED}
 		{D248211B-94E6-4C93-BB9C-5A6FC0EEFC67} = {0DF3735A-5F39-4EF6-B50E-8B13E97883CA}
+		{F9EDBB67-6F99-495B-B0DF-928E42391174} = {FC961B4E-3497-45AF-8674-DC26D19D2C07}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AD2A4E1C-B70F-468D-966E-67FF29D3690F}

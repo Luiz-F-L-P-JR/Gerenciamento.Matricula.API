@@ -22,9 +22,8 @@ namespace Gerenciamento.Matricula.API.Domain.Services
 
         public async Task<IList<Aluno>> GetNamesRandomAsync()
         {
-            // A variavel "quantidadeDeNomes" é uma variável criada para indicar a quantidade de nomes que serão obtidos através da requisição a API externa.
-
             var uri = $"https://gerador-nomes.herokuapp.com/nomes/5";
+
             var response = await _httpCliente.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)

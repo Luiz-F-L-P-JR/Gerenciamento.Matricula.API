@@ -10,11 +10,13 @@ namespace Gerenciamento.Matricula.API.Controllers
     [ApiController]
     public class MatriculasController : ControllerBase
     {
+        private readonly ITimerAppService _timerAppService;
         private readonly IAlunoAppService _alunoAppService;
 
-        public MatriculasController(IAlunoAppService alunoAppService)
+        public MatriculasController(IAlunoAppService alunoAppService, ITimerAppService timerAppService)
         {
             _alunoAppService = alunoAppService;
+            _timerAppService = timerAppService;
         }
 
         /// <summary>Mostra uma lista dos alunos matriculados.</summary>
@@ -71,6 +73,20 @@ namespace Gerenciamento.Matricula.API.Controllers
         public async Task<IActionResult> UpdateAsync([FromBody] Aluno aluno)
         {
             await _alunoAppService.UpdateAsync(aluno);
+            return NoContent();
+        }
+
+        /// <summary>Atualiza o tempo de inserção de novos alunos.</summary>
+        /// <param name="time"></param>
+        /// <response code="204">Sucesso</response>
+        /// <response code="500">Erro interno</response>
+        [HttpPut]
+        [Route("Update-Timer")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> UpdateAsync(int time)
+        {
+            await _timerAppService.UpdateTimerAsync(time);
             return NoContent();
         }
 

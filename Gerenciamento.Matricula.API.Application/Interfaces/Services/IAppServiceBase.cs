@@ -8,6 +8,8 @@ namespace Gerenciamento.Matricula.API.Application.Interfaces.Services
     {
         Task DeleteAllAsync();
         Task DeleteAsync(int id);
+        Task<int> GetTimerAsync();
+        Task UpdateTimerAsync(int time);
         Task CreateAsync(Tentity entity);
         Task UpdateAsync(Tentity entity);
         Task<IList<Tentity>> GetAllAsync();
