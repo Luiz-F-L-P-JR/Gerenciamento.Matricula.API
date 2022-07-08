@@ -10,12 +10,14 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
     public class RepositoryBase<Tentity> : IRepositoryBase<Tentity> where Tentity : class
     {
         private SqlConnection Con;
-        private string Connection = "Data Source=localhost;Initial Catalog=CADASTRO;Integrated Security=True";
+        private string Connection = "Data Source=localhost;Initial Catalog=MATRICULA;Integrated Security=True";
 
         public RepositoryBase()
         {
 
         }
+
+        #region Região do Aluno
 
         public async Task CreateAsync(Tentity entity)
         {
@@ -58,7 +60,7 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
             {
                 await Con.OpenAsync();
 
-                var query = $"Select * from Aluno order by Id desc";
+                var query = $"Select * from Aluno order by DataDaMatricula desc";
 
                 var lista = await Con.QueryAsync<Tentity>(query);
 
@@ -111,5 +113,57 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
                 await Con.CloseAsync();
             }
         }
+
+        #endregion
+
+        #region Região Timer
+
+        public async Task CreateTimerAsync(int time)
+        {
+            using (Con = new SqlConnection(Connection))
+            {
+                await Con.OpenAsync();
+
+                var query = $@"Insert into Timer (Time) values ({time})";
+
+                await Con.ExecuteAsync(query);
+
+                await Con.CloseAsync();
+            }
+        }
+
+        public async Task<int> GetTimerAsync()
+        {
+            int time;
+
+            using (Con = new SqlConnection(Connection))
+            {
+                await Con.OpenAsync();
+
+                var query = $"Select Time from Timer";
+
+                time = await Con.QueryFirstOrDefaultAsync<int>(query);
+
+                await Con.CloseAsync();
+            }
+
+            return time;
+        }
+
+        public async Task UpdateTimerAsync(int time)
+        {
+            using (Con = new SqlConnection(Connection))
+            {
+                await Con.OpenAsync();
+
+                var query = $@"Update Timer Set Time = {time}";
+
+                await Con.ExecuteAsync(query);
+
+                await Con.CloseAsync();
+            }
+        }
+
+        #endregion
     }
 }

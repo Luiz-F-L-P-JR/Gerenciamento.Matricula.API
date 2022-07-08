@@ -18,6 +18,10 @@ namespace Gerenciamento.Matricula.API.CrossCutting.IOC
             services.AddTransient<IAlunoService, AlunoService>();
             services.AddTransient<IAlunoAppService, AlunoAppService>();
             services.AddTransient<IAlunoRepository, AlunoRepository>();
+
+            services.AddTransient<ITimerService, TimerService>();
+            services.AddTransient<ITimerAppService, TimerAppService>();
+            services.AddTransient<ITimerRepository, TimerRepository>();
         }
     }
 }

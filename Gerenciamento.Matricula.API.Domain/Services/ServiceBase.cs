@@ -43,5 +43,15 @@ namespace Gerenciamento.Matricula.API.Domain.Services
         {
             await _repositoryBase.DeleteAllAsync();
         }
+
+        public async Task<int> GetTimerAsync()
+        {
+            return await _repositoryBase.GetTimerAsync();
+        }
+
+        public async Task UpdateTimerAsync(int time)
+        {
+            await _repositoryBase.UpdateTimerAsync(time);
+        }
     }
 }

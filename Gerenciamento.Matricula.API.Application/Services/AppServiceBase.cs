@@ -43,5 +43,15 @@ namespace Gerenciamento.Matricula.API.Application.Services
         {
             await _serviceBase.DeleteAllAsync();
         }
+
+        public async Task<int> GetTimerAsync()
+        {
+            return await _serviceBase.GetTimerAsync();
+        }
+
+        public async Task UpdateTimerAsync(int time)
+        {
+            await _serviceBase.UpdateTimerAsync(time);
+        }
     }
 }

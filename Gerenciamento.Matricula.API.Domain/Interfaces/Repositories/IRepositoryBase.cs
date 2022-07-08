@@ -7,6 +7,9 @@ namespace Gerenciamento.Matricula.API.Domain.Interfaces.Repositories
     {
         Task DeleteAllAsync();
         Task DeleteAsync(int id);
+        Task<int> GetTimerAsync();
+        Task CreateTimerAsync(int time);
+        Task UpdateTimerAsync(int time);
         Task CreateAsync(Tentity entity);
         Task UpdateAsync(Tentity entity);
         Task<IList<Tentity>> GetAllAsync();
