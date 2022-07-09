@@ -10,7 +10,7 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
     public class RepositoryBase<Tentity> : IRepositoryBase<Tentity> where Tentity : class
     {
         private SqlConnection Con;
-        private string Connection = "Data Source=localhost;Initial Catalog=MATRICULA;Integrated Security=True";
+        private string Connection = "Data Source=desafiophidelis.database.windows.net;Initial Catalog=MATRICULADB; User Id=Desafiophidelis; Password=Des@fio01";
 
         public RepositoryBase()
         {
