@@ -32,17 +32,10 @@ namespace Gerenciamento.Matricula.API.Domain.Services
 
                 var alunos = new List<Aluno>();
 
-                var aluno = new Aluno() { NomeCompleto = result[0], DataDaMatricula = DateTime.Now };
-                var aluno2 = new Aluno() { NomeCompleto = result[1], DataDaMatricula = DateTime.Now };
-                var aluno3 = new Aluno() { NomeCompleto = result[2], DataDaMatricula = DateTime.Now };
-                var aluno4 = new Aluno() { NomeCompleto = result[3], DataDaMatricula = DateTime.Now };
-                var aluno5 = new Aluno() { NomeCompleto = result[4], DataDaMatricula = DateTime.Now };
-
-                alunos.Add(aluno);
-                alunos.Add(aluno2);
-                alunos.Add(aluno3);
-                alunos.Add(aluno4);
-                alunos.Add(aluno5);
+                for (int i = 0; i < result.Length; i++)
+                {
+                    alunos.Add(new Aluno() { NomeCompleto = result[i], DataDaMatricula = DateTime.Now });
+                }
 
                 return alunos;
             }

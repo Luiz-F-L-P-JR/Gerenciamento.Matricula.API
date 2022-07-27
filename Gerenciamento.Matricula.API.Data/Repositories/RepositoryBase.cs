@@ -4,24 +4,25 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Gerenciamento.Matricula.API.Domain.Interfaces.Repositories;
+using Microsoft.Extensions.Configuration;
 
 namespace Gerenciamento.Matricula.API.Data.Repositories
 {
-    public class RepositoryBase<Tentity> : IRepositoryBase<Tentity> where Tentity : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         private SqlConnection Con;
-        private string Connection = "Data Source=desafiophidelis.database.windows.net;Initial Catalog=MATRICULADB; User Id=Desafiophidelis; Password=Des@fio01";
+        private readonly IConfiguration _Connection;
 
-        public RepositoryBase()
+        public RepositoryBase(IConfiguration connection)
         {
-
+            _Connection = connection;
         }
 
         #region Região do Aluno
 
-        public async Task CreateAsync(Tentity entity)
+        public async Task CreateAsync(T entity)
         {
-            using (Con = new SqlConnection(Connection))
+            using (Con = new SqlConnection(_Connection.GetConnectionString("DbConnection")))
             {
                 await Con.OpenAsync();
 
@@ -33,17 +34,17 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
             }
         }
 
-        public async Task<Tentity> GetAsync(string name)
+        public async Task<T> GetAsync(string name)
         {
-            Tentity entidade;
+            T entidade;
 
-            using (Con = new SqlConnection(Connection))
+            using (Con = new SqlConnection(_Connection.GetConnectionString("DbConnection")))
             {
                 await Con.OpenAsync();
 
                 var query = $"Select * from Aluno where NomeCompleto like '{name}%'";
 
-                entidade = await Con.QueryFirstOrDefaultAsync<Tentity>(query);
+                entidade = await Con.QueryFirstOrDefaultAsync<T>(query);
 
                 await Con.CloseAsync();
             }
@@ -51,18 +52,18 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
             return entidade;
         }
 
-        public async Task<IList<Tentity>> GetAllAsync()
+        public async Task<IList<T>> GetAllAsync()
         {
 
-            List<Tentity> listaEntidade = new List<Tentity>();
+            List<T> listaEntidade = new List<T>();
 
-            using (Con = new SqlConnection(Connection))
+            using (Con = new SqlConnection(_Connection.GetConnectionString("DbConnection")))
             {
                 await Con.OpenAsync();
 
                 var query = $"Select * from Aluno order by DataDaMatricula desc";
 
-                var lista = await Con.QueryAsync<Tentity>(query);
+                var lista = await Con.QueryAsync<T>(query);
 
                 await Con.CloseAsync();
                     
@@ -72,9 +73,9 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
             return listaEntidade;
         }
 
-        public async Task UpdateAsync(Tentity entity)
+        public async Task UpdateAsync(T entity)
         {
-            using (Con = new SqlConnection(Connection))
+            using (Con = new SqlConnection(_Connection.GetConnectionString("DbConnection")))
             {
                 await Con.OpenAsync();
 
@@ -88,7 +89,7 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            using (Con = new SqlConnection(Connection))
+            using (Con = new SqlConnection(_Connection.GetConnectionString("DbConnection")))
             {
                 await Con.OpenAsync();
 
@@ -102,7 +103,7 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
 
         public async Task DeleteAllAsync()
         {
-            using (Con = new SqlConnection(Connection))
+            using (Con = new SqlConnection(_Connection.GetConnectionString("DbConnection")))
             {
                 await Con.OpenAsync();
 
@@ -120,7 +121,7 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
 
         public async Task CreateTimerAsync(int time)
         {
-            using (Con = new SqlConnection(Connection))
+            using (Con = new SqlConnection(_Connection.GetConnectionString("DbConnection")))
             {
                 await Con.OpenAsync();
 
@@ -136,7 +137,7 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
         {
             int time;
 
-            using (Con = new SqlConnection(Connection))
+            using (Con = new SqlConnection(_Connection.GetConnectionString("DbConnection")))
             {
                 await Con.OpenAsync();
 
@@ -152,7 +153,7 @@ namespace Gerenciamento.Matricula.API.Data.Repositories
 
         public async Task UpdateTimerAsync(int time)
         {
-            using (Con = new SqlConnection(Connection))
+            using (Con = new SqlConnection(_Connection.GetConnectionString("DbConnection")))
             {
                 await Con.OpenAsync();
 

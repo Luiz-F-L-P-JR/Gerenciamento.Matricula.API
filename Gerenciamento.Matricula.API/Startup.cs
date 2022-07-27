@@ -23,6 +23,8 @@ namespace Gerenciamento.Matricula.API
         {
             services.AddControllers();
 
+            services.AddHealthChecks();
+
             services.AddHostedService<TimerHostedService>();
 
             services.AddDependencyInjection();

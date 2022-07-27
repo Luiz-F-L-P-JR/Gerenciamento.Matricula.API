@@ -10,7 +10,7 @@ using Gerenciamento.Matricula.API.Domain.Interfaces.HttpClient;
 
 namespace Gerenciamento.Matricula.API.CrossCutting.IOC
 {
-    public static class IOC
+    public static class Ioc
     {
         public static void AddDependencyInjection(this IServiceCollection services)
         {

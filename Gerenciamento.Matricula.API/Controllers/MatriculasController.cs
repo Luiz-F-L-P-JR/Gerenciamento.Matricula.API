@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace Gerenciamento.Matricula.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class MatriculasController : ControllerBase
     {
-        private readonly ITimerAppService _timerAppService;
         private readonly IAlunoAppService _alunoAppService;
 
-        public MatriculasController(IAlunoAppService alunoAppService, ITimerAppService timerAppService)
+        public MatriculasController(IAlunoAppService alunoAppService)
         {
             _alunoAppService = alunoAppService;
-            _timerAppService = timerAppService;
         }
 
         /// <summary>Mostra uma lista dos alunos matriculados.</summary>
@@ -24,7 +22,7 @@ namespace Gerenciamento.Matricula.API.Controllers
         /// <response code="500">Erro interno</response>
         /// <returns> Retorna todos os alunos matriculados.</returns>
         [HttpGet]
-        [Route("GetAll-Matriculas")]
+        [Route("Matriculas")]
         [ProducesResponseType(typeof(Aluno), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAllAsync()
@@ -39,7 +37,7 @@ namespace Gerenciamento.Matricula.API.Controllers
         /// <response code="500">Erro interno</response>
         /// /// <returns> Retorna todos os alunos matriculados.</returns>
         [HttpGet]
-        [Route("Get-Matricula")]
+        [Route("Matricula")]
         [ProducesResponseType(typeof(Aluno), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAsync(string name)
@@ -53,7 +51,7 @@ namespace Gerenciamento.Matricula.API.Controllers
         /// <response code="200">Sucesso</response>
         /// <response code="500">Erro interno</response>
         [HttpPost]
-        [Route("Create-Matricula")]
+        [Route("Matricula")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> CreateAsync([FromBody] Aluno aluno)
@@ -67,7 +65,7 @@ namespace Gerenciamento.Matricula.API.Controllers
         /// <response code="200">Sucesso</response>
         /// <response code="500">Erro interno</response>
         [HttpPut]
-        [Route("Update-Matricula")]
+        [Route("Matricula")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> UpdateAsync([FromBody] Aluno aluno)
@@ -76,26 +74,12 @@ namespace Gerenciamento.Matricula.API.Controllers
             return NoContent();
         }
 
-        /// <summary>Atualiza o tempo de inserção de novos alunos.</summary>
-        /// <param name="time"></param>
-        /// <response code="204">Sucesso</response>
-        /// <response code="500">Erro interno</response>
-        [HttpPut]
-        [Route("Update-Timer")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> UpdateAsync(int time)
-        {
-            await _timerAppService.UpdateTimerAsync(time);
-            return NoContent();
-        }
-
         /// <summary>Exclui um aluno matriculado.</summary>
         /// <param name="id"></param>
         /// <response code="200">Sucesso</response>
         /// <response code="500">Erro interno</response>
         [HttpDelete]
-        [Route("Delete-Matricula")]
+        [Route("Matricula")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteAsync(int id)
@@ -108,7 +92,7 @@ namespace Gerenciamento.Matricula.API.Controllers
         /// <response code="200">Sucesso</response>
         /// <response code="500">Erro interno</response>
         [HttpDelete]
-        [Route("DeleteAll-Matriculas")]
+        [Route("Matriculas")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteAllAsync()
