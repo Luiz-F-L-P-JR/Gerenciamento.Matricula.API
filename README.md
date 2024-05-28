@@ -16,6 +16,7 @@ O Gerenciamento de Matrículas é uma API que suporta as operações de um aplic
 - .NET 5
 - Dapper
 - SQL Server
+- Hosted Server
 
 ### Pré-requisitos
 
@@ -23,7 +24,7 @@ O Gerenciamento de Matrículas é uma API que suporta as operações de um aplic
 - [Git](https://git-scm.com/)
 - Um banco de dados SQL Server
 
-## Instalação
+## Clonando o repositório
 
 1. Clone o repositório:
 
@@ -31,23 +32,31 @@ O Gerenciamento de Matrículas é uma API que suporta as operações de um aplic
 git clone https://github.com/Luiz-F-L-P-JR/Gerenciamento.Matricula.API.git
 ```
 
-2. Navegue até o diretório do projeto:
+## Configuração
+
+1. Navegue até o diretório do projeto:
 
 ```bash
 cd Gerenciamento.Matricula.API
 ```
 
-3. Execute a aplicação VS Code:
+2. Abra o arquivo `appsettings.json` e atualize as configurações conforme necessário, especialmente as configurações relacionadas ao banco de dados para conexão com o SQL Server.
+
+## Executando o projeto
+
+1. Execute a aplicação VS Code:
 
 ```bash
 dotnet run 
 ```
 
-4. Execute a aplicação Visual Studio:
+2. Execute a aplicação Visual Studio:
 
 ```bash
 Aperte F5 ou clique no botão para a execução na barra de configuração. 
 ```
+
+3. O projeto estará acessível nas rotas indicadas no arquivo `launchSettings.json`, utilize `http://localhost:` e a número da porta.
 
 ## Contribuindo
 
