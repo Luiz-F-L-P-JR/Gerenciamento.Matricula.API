@@ -18,13 +18,17 @@ O Gerenciamento de Matrículas é uma API que suporta as operações de um aplic
 - SQL Server
 - Hosted Server
 
+## Instalação e Execução
+
+Siga estas etapas para configurar e executar a API localmente:
+
 ### Pré-requisitos
 
 - [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
 - [Git](https://git-scm.com/)
 - Um banco de dados SQL Server
 
-## Clonando o repositório
+### Clonando o repositório
 
 1. Clone o repositório:
 
@@ -32,7 +36,7 @@ O Gerenciamento de Matrículas é uma API que suporta as operações de um aplic
 git clone https://github.com/Luiz-F-L-P-JR/Gerenciamento.Matricula.API.git
 ```
 
-## Configuração
+### Configuração
 
 1. Navegue até o diretório do projeto:
 
@@ -42,7 +46,7 @@ cd Gerenciamento.Matricula.API
 
 2. Abra o arquivo `appsettings.json` e atualize as configurações conforme necessário, especialmente as configurações relacionadas ao banco de dados para conexão com o SQL Server.
 
-## Executando o projeto
+### Executando o projeto
 
 1. Execute a aplicação VS Code:
 
