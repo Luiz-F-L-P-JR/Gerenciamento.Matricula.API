@@ -46,7 +46,7 @@ dotnet run
 4. Execute a aplicação Visual Studio:
 
 ```bash
-Aperte F5 ou clique no botão para a execução do na barra de configuração. 
+Aperte F5 ou clique no botão para a execução na barra de configuração. 
 ```
 
 ## Contribuindo
